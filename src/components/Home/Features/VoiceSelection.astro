@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+import { voices } from '@data/features';
+---
+
+<div class="bg-[#171A24] rounded-2xl p-8 lg:col-span-2">
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+    {voices.map((voice) => (
+      <div class="bg-[#2E3039] rounded-xl px-4 pt-4 flex flex-col items-center">
+        <span class="text-sm">{voice.alt}</span>
+        <Image 
+          src={voice.src} 
+          alt={voice.alt}
+          class="w-full h-auto rounded-lg mt-10"
+        />
+      </div>
+    ))}
+  </div>
+
+  <h3 class="text-3xl font-black mb-4">
+    Choose the voice that matches you
+  </h3>
+
+  <p class="text-white/70 text-sm font-light">
+    Personalize your experience by selecting the AI voice that best suits your style. Whether it's a smooth, energetic, or professional tone, we offer a variety of options to ensure seamless communication tailored just for you.
+  </p>
+</div>

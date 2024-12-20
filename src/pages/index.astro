@@ -1,14 +1,18 @@
 ---
-import Hero from '../components/Home/Hero.astro';
-import Nav from '../components/ui/Nav.astro';
-import Layout from '../layouts/Layout.astro';
+import Hero from '@components/Home/Hero.astro';
+import Introduction from '@components/Home/Introduction.astro';
+import Features from '@components/Home/Features.astro';
+import Nav from '@components/ui/Nav.astro';
+import Layout from '@layouts/Layout.astro';
 ---
 
 <Layout>
   <main>
     <section class="bg-hero min-h-screen">
         <Nav />
-     <Hero />
+        <Hero />
     </section>
+    <Introduction />
+    <Features />
   </main>
 </Layout>

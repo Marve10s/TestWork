@@ -1,0 +1,24 @@
+---
+import VoiceSelection from '@components/Home/Features/VoiceSelection.astro';
+import UploadOptions from '@components/Home/Features/UploadOptions.astro';
+import ChromeExtension from '@components/Home/Features/ChromeExtension.astro';
+import TakeNotes from '@components/Home/Features/TakeNotes.astro';
+---
+
+<section class="bg-black text-white py-24">
+  <div class="px-[72px]">
+    <h2 class="text-6xl font-black mb-6">
+      Explorer our features
+    </h2>
+    <p class="text-xl text-white/80 max-w-[800px]">
+      Eu risus sed at turpis eu pharetra. Non turpis lectus eleifend nisl fringilla dui mollis lectus. Magna scelerisque ut et donec. Etiam non et eget ullamcorper. Accumsan odio lectus sed nibh
+    </p>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-16 [&>*]:min-h-[448px]">
+      <VoiceSelection />
+      <UploadOptions />
+      <ChromeExtension />
+      <TakeNotes />
+    </div>
+  </div>
+</section>
