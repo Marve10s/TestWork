@@ -16,7 +16,26 @@ export default {
 					'xl': '1280px',
 					'2xl': '1536px',
 				},
-			}
+			},
+			animation: {
+				'scroll-1': 'scroll-1 80s linear infinite',
+				'scroll-2': 'scroll-2 70s linear infinite reverse',
+				'scroll-3': 'scroll-3 60s linear infinite',
+			},
+			keyframes: {
+				'scroll-1': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(-75%)' },
+				},
+				'scroll-2': {
+					'0%': { transform: 'translateX(-75%)' },
+					'100%': { transform: 'translateX(0)' },
+				},
+				'scroll-3': {
+					'0%': { transform: 'translateX(-50%)' },
+					'100%': { transform: 'translateX(-100%)' },
+				},
+			},
 		},
 	},
 	plugins: [],

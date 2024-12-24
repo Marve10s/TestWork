@@ -1,62 +1,31 @@
 ---
-interface ScrollItem {
-  icon: string;
-  text: string;
-}
+import { scrollItems } from '@data/features';
 
-const items: ScrollItem[] = [
-  { icon: "🚀", text: "Lorem Ipsum Dolor" },
-  { icon: "⭐", text: "Lorem Ipsum Dolor" },
-  { icon: "🌐", text: "Lorem Ipsum Dolor" },
-  { icon: "🔍", text: "Lorem Ipsum Dolor" },
-  { icon: "🌕", text: "Lorem Ipsum Dolor" },
-  { icon: "🎯", text: "Lorem Ipsum Dolor" },
-  { icon: "⚡", text: "Lorem Ipsum Dolor" }
+const rows = [
+  { animationClass: 'animate-scroll-1' },
+  { animationClass: 'animate-scroll-2' },
+  { animationClass: 'animate-scroll-3' }
 ];
+
+
+const multiplyItems = (items: typeof scrollItems, times: number) => {
+  return Array(times).fill(null).flatMap(() => items);
+};
+
+const repeatedItems = multiplyItems(scrollItems, 4); // Repeat items 4 times
 ---
 
-<div class="w-full overflow-hidden bg-[#0B0F17] mt-12">
-  <!-- Row 1 -->
-  <div class="flex animate-scroll-1 py-1">
-    {([...items, ...items]).map((item, index) => (
-      <div
-        class="flex items-center justify-center gap-2 py-2 px-2 mx-1
-               bg-[#171A2480] border border-white/[0.16]
-               rounded-lg hover:bg-white/5 transition-colors text-nowrap"
-      >
-        <span class="text-xl">{item.icon}</span>
-        <span class="text-white/80 text-sm font-medium">{item.text}</span>
-      </div>
-    ))}
-  </div>
-
-  <!-- Row 2 -->
-  <div class="flex animate-scroll-2 py-1">
-    {([...items, ...items]).map((item, index) => (
-      <div
-        class="flex items-center justify-center gap-2 py-2 px-2 mx-1
-               bg-[#171A2480] border border-white/[0.16]
-               rounded-lg hover:bg-white/5 transition-colors text-nowrap"
-      >
-        <span class="text-xl">{item.icon}</span>
-        <span class="text-white/80 text-sm font-medium">{item.text}</span>
-      </div>
-    ))}
-  </div>
-
-  <!-- Row 3 -->
-  <div class="flex animate-scroll-3 py-1">
-    {([...items, ...items]).map((item, index) => (
-      <div
-        class="flex items-center justify-center gap-2 py-2 px-2 mx-1
-               bg-[#171A2480] border border-white/[0.16]
-               rounded-lg hover:bg-white/5 transition-colors text-nowrap"
-      >
-        <span class="text-xl">{item.icon}</span>
-        <span class="text-white/80 text-sm font-medium">{item.text}</span>
-      </div>
-    ))}
-  </div>
+<div class="scroll-container">
+  {rows.map(({ animationClass }) => (
+    <div class={`scroll-row ${animationClass}`}>
+      {repeatedItems.map((item) => (
+        <div class="scroll-item">
+          <span class="text-xl">{item.icon}</span>
+          <span class="text-white/80 text-sm font-medium">{item.text}</span>
+        </div>
+      ))}
+    </div>
+  ))}
 </div>
 
 <style>

@@ -7,3 +7,42 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+/* Scroll Row Styles */
+@layer components {
+  .scroll-container {
+    @apply w-full overflow-hidden bg-[#0B0F17] mt-12;
+  }
+
+  .scroll-row {
+    @apply flex py-1;
+  }
+
+  .scroll-row-middle {
+    @apply relative;
+  }
+
+  .scroll-row-middle::before,
+  .scroll-row-middle::after {
+    content: '';
+    @apply absolute left-0 right-0 h-px bg-white/20;
+  }
+
+  .scroll-row-middle::before {
+    @apply top-0;
+  }
+
+  .scroll-row-middle::after {
+    @apply bottom-0;
+  }
+  
+  .scroll-item {
+    @apply flex items-center justify-center gap-2 py-2 px-2 mx-1
+           bg-[#171A2420] border border-white/[0.16]
+           rounded-lg hover:bg-white/5 transition-colors text-nowrap;
+  }
+
+  .scroll-item-middle {
+    @apply border-white/30;
+  }
+}

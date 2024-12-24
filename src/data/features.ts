@@ -15,6 +15,22 @@ interface UploadOption {
   label: string;
 }
 
+interface Note {
+  text: string;
+  subtext: string;
+}
+
+interface ChromeExtensionProps {
+  defaultUrl: string;
+  title: string;
+  description: string;
+}
+
+interface ScrollItem {
+  icon: string;
+  text: string;
+}
+
 // Voice data
 export const voices: Voice[] = [
   { src: peterImg, alt: "Peter" },
@@ -33,4 +49,38 @@ export const uploadOptions: UploadOption[] = [
   { icon: 'notion', label: 'Notion' },
   { icon: 'kindle', label: 'Kindle' },
   { icon: 'plus', label: 'and more...' }
+];
+
+// Notes data
+export const notes: Note[] = [
+  {
+    text: "Key insights from the document",
+    subtext: "The document discusses advanced classification techniques and their practical applications in machine learning."
+  },
+  {
+    text: "Important methodology details",
+    subtext: "The approach uses independent logistic classifiers for improved performance and scalability."
+  },
+  {
+    text: "Future research directions",
+    subtext: "Potential areas for improvement include optimization techniques and enhanced feature selection."
+  }
+];
+
+// Chrome extension data
+export const chromeExtension: ChromeExtensionProps = {
+  defaultUrl: 'https://docs.ultralytics.com/pt/',
+  title: 'Chrome extension',
+  description: 'Install our Chrome extension for quick access to AI-powered document analysis and note-taking directly from your browser.'
+};
+
+// Scroll items data
+export const scrollItems: ScrollItem[] = [
+  { icon: "🚀", text: "Fast Processing" },
+  { icon: "⭐", text: "High Quality" },
+  { icon: "🌐", text: "Web Integration" },
+  { icon: "🔍", text: "Smart Search" },
+  { icon: "🌟", text: "AI Powered" },
+  { icon: "🎯", text: "Precise Results" },
+  { icon: "⚡", text: "Real-time Updates" }
 ];

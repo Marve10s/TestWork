@@ -1,25 +1,12 @@
 ---
 import { Icon } from 'astro-icon/components';
+import { notes } from '@data/features';
 
 interface Note {
   text: string;
   subtext: string;
 }
 
-const notes: Note[] = [
-  {
-    text: "This formulation helps when we move to more complex",
-    subtext: "Instead we simply use independent logistic classifiers. Dur- ing training we use binary"
-  },
-  {
-    text: "This formulation helps when we move to more complex",
-    subtext: "Instead we simply use independent logistic classifiers. Dur- ing training we use binary"
-  },
-  {
-    text: "This formulation helps when we move to more complex",
-    subtext: "Instead we simply use independent logistic classifiers. Dur- ing training we use binary"
-  }
-];
 ---
 
 <div class="bg-[#171A24] rounded-2xl pt-8 md:pt-10 lg:pt-12 px-4 md:px-5 lg:px-6 pb-6 lg:col-span-2">
@@ -27,7 +14,7 @@ const notes: Note[] = [
     <div class="relative flex-1 mb-8 md:mb-12 lg:mb-16">
       <div class="flex flex-col lg:flex-row max-lg:w-full justify-center items-center gap-6 lg:gap-3 xl:gap-4 mx-auto relative lg:h-[240px] xl:h-[280px]">
         {notes.map((note, index) => (
-          <div class={`bg-[#292c35] max-lg:mb-8 border max-lg:w-full border-white/[0.16] rounded-2xl w-full  lg:w-[260px] xl:w-[300px]  mx-auto ${
+          <div class={`bg-[#292c35] max-lg:mb-8 border max-lg:w-full border-white/[0.16] rounded-2xl w-full lg:w-[260px] xl:w-[300px] mx-auto ${
             index === 0 ? 'lg:-rotate-[8deg] lg:translate-y-4' :
             index === 1 ? 'lg:pb-8 xl:pb-12' :
             'lg:rotate-[8deg] lg:translate-y-4'
