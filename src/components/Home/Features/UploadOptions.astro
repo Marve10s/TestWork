@@ -3,14 +3,14 @@ import { Icon } from 'astro-icon/components'
 import { uploadOptions } from '@data/features';
 ---
 
-<div class="bg-[#171A24] rounded-2xl p-8 lg:col-span-1 flex flex-col">
+<div class="bg-[#171A24] rounded-2xl p-8 lg:col-span-1 flex flex-col ">
   <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-auto">
     {uploadOptions.map((option) => (
       <div class="flex flex-col items-center gap-3 group cursor-pointer">
-        <div class="bg-[#2E3039] w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-[#383B47]">
-          <Icon name={option.icon} class="w-8 h-8 transition-transform duration-300 group-hover:scale-110" />
+        <div class="bg-[#2E3039] w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-[#383B47]">
+          <Icon name={option.icon} class="w-10 h-10 transition-transform duration-300 group-hover:scale-110" />
         </div>
-        <span class="text-sm text-center text-white/70 transition-colors duration-300 group-hover:text-white">{option.label}</span>
+        <span class="text-sm text-center  transition-colors duration-300 group-hover:text-white/70">{option.label}</span>
       </div>
     ))}
   </div>
