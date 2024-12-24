@@ -1,0 +1,109 @@
+---
+interface ScrollItem {
+  icon: string;
+  text: string;
+}
+
+const items: ScrollItem[] = [
+  { icon: "🚀", text: "Lorem Ipsum Dolor" },
+  { icon: "⭐", text: "Lorem Ipsum Dolor" },
+  { icon: "🌐", text: "Lorem Ipsum Dolor" },
+  { icon: "🔍", text: "Lorem Ipsum Dolor" },
+  { icon: "🌕", text: "Lorem Ipsum Dolor" },
+  { icon: "🎯", text: "Lorem Ipsum Dolor" },
+  { icon: "⚡", text: "Lorem Ipsum Dolor" }
+];
+---
+
+<div class="w-full overflow-hidden bg-[#0B0F17] mt-12">
+  <!-- Row 1 -->
+  <div class="flex animate-scroll-1 py-1">
+    {([...items, ...items]).map((item, index) => (
+      <div
+        class="flex items-center justify-center gap-2 py-2 px-2 mx-1
+               bg-[#171A2480] border border-white/[0.16]
+               rounded-lg hover:bg-white/5 transition-colors text-nowrap"
+      >
+        <span class="text-xl">{item.icon}</span>
+        <span class="text-white/80 text-sm font-medium">{item.text}</span>
+      </div>
+    ))}
+  </div>
+
+  <!-- Row 2 -->
+  <div class="flex animate-scroll-2 py-1">
+    {([...items, ...items]).map((item, index) => (
+      <div
+        class="flex items-center justify-center gap-2 py-2 px-2 mx-1
+               bg-[#171A2480] border border-white/[0.16]
+               rounded-lg hover:bg-white/5 transition-colors text-nowrap"
+      >
+        <span class="text-xl">{item.icon}</span>
+        <span class="text-white/80 text-sm font-medium">{item.text}</span>
+      </div>
+    ))}
+  </div>
+
+  <!-- Row 3 -->
+  <div class="flex animate-scroll-3 py-1">
+    {([...items, ...items]).map((item, index) => (
+      <div
+        class="flex items-center justify-center gap-2 py-2 px-2 mx-1
+               bg-[#171A2480] border border-white/[0.16]
+               rounded-lg hover:bg-white/5 transition-colors text-nowrap"
+      >
+        <span class="text-xl">{item.icon}</span>
+        <span class="text-white/80 text-sm font-medium">{item.text}</span>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  /* Keyframes for a continuous scroll from 0% to -50% */
+  @keyframes scroll-1 {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  @keyframes scroll-2 {
+    0% {
+      transform: translateX(-25%);
+    }
+    100% {
+      transform: translateX(-75%);
+    }
+  }
+  @keyframes scroll-3 {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* Classes to apply the animations */
+  .animate-scroll-1 {
+    animation: scroll-1 20s linear infinite;
+    white-space: nowrap; /* prevent wrapping */
+  }
+  .animate-scroll-2 {
+    animation: scroll-2 20s linear infinite;
+    white-space: nowrap; /* prevent wrapping */
+  }
+  .animate-scroll-3 {
+    animation: scroll-3 20s linear infinite;
+    white-space: nowrap; /* prevent wrapping */
+  }
+
+  /* Pause animation on hover */
+  .animate-scroll-1:hover,
+  .animate-scroll-2:hover,
+  .animate-scroll-3:hover {
+    animation-play-state: paused;
+  }
+</style>

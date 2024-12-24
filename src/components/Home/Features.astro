@@ -3,10 +3,12 @@ import VoiceSelection from '@components/Home/Features/VoiceSelection.astro';
 import UploadOptions from '@components/Home/Features/UploadOptions.astro';
 import ChromeExtension from '@components/Home/Features/ChromeExtension.astro';
 import TakeNotes from '@components/Home/Features/TakeNotes.astro';
+import ScrollRow from '@components/Home/Features/ScrollRow.astro';
 ---
 
-<section class="bg-black text-white py-24">
-  <div class="px-[72px]">
+<section class="relative bg-black text-white">
+  <div class="absolute inset-0 bg-gradient-to-b from-black via-black to-[#0c1324] pointer-events-none"></div>
+  <div class="relative px-[72px] py-24">
     <h2 class="text-6xl font-black mb-6">
       Explorer our features
     </h2>
@@ -21,4 +23,7 @@ import TakeNotes from '@components/Home/Features/TakeNotes.astro';
       <TakeNotes />
     </div>
   </div>
+  <ScrollRow />
+
+
 </section>

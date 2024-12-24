@@ -1,12 +1,79 @@
 ---
+import { Icon } from 'astro-icon/components';
+
+interface Note {
+  text: string;
+  subtext: string;
+}
+
+const notes: Note[] = [
+  {
+    text: "This formulation helps when we move to more complex",
+    subtext: "Instead we simply use independent logistic classifiers. Dur- ing training we use binary"
+  },
+  {
+    text: "This formulation helps when we move to more complex",
+    subtext: "Instead we simply use independent logistic classifiers. Dur- ing training we use binary"
+  },
+  {
+    text: "This formulation helps when we move to more complex",
+    subtext: "Instead we simply use independent logistic classifiers. Dur- ing training we use binary"
+  }
+];
 ---
 
-<div class="bg-[#171A24] rounded-2xl p-8 lg:col-span-2">
-  <h3 class="text-3xl font-black mb-4">
-    Take notes easily
-  </h3>
+<div class="bg-[#171A24] rounded-2xl pt-8 md:pt-10 lg:pt-12 px-4 md:px-5 lg:px-6 pb-6 lg:col-span-2">
+  <div class="flex flex-col h-full">
+    <div class="relative flex-1 mb-8 md:mb-12 lg:mb-16">
+      <div class="flex flex-col lg:flex-row max-lg:w-full justify-center items-center gap-6 lg:gap-3 xl:gap-4 mx-auto relative lg:h-[240px] xl:h-[280px]">
+        {notes.map((note, index) => (
+          <div class={`bg-[#292c35] max-lg:mb-8 border max-lg:w-full border-white/[0.16] rounded-2xl w-full  lg:w-[260px] xl:w-[300px]  mx-auto ${
+            index === 0 ? 'lg:-rotate-[8deg] lg:translate-y-4' :
+            index === 1 ? 'lg:pb-8 xl:pb-12' :
+            'lg:rotate-[8deg] lg:translate-y-4'
+          } p-6`}>
+            <div class="flex flex-col h-full max-lg:gap-12">
+              <div class="flex-1">
+                <p class="text-lg lg:text-base xl:text-lg font-medium mb-3 lg:mb-2 xl:mb-4">
+                  {note.text}
+                </p>
+                <p class="text-[15px] lg:text-sm xl:text-[15px] text-white/70 leading-relaxed lg:leading-normal xl:leading-relaxed">
+                  {note.subtext}
+                </p>
+              </div>
+              <div class="flex gap-4 lg:gap-3 xl:gap-4 mt-6 lg:mt-4 xl:mt-6">
+                <button class="hover:bg-white/10 p-2 rounded-lg transition-colors">
+                  <Icon name="pencil" class="w-5 lg:w-4 xl:w-5 h-5 lg:h-4 xl:h-5" />
+                </button>
+                <button class="hover:bg-white/10 p-2 rounded-lg transition-colors">
+                  <Icon name="share" class="w-5 lg:w-4 xl:w-5 h-5 lg:h-4 xl:h-5" />
+                </button>
+                <button class="hover:bg-white/10 p-2 rounded-lg transition-colors">
+                  <Icon name="download" class="w-5 lg:w-4 xl:w-5 h-5 lg:h-4 xl:h-5" />
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
 
-  <p class="text-white/70 text-sm font-light">
-    Eu risus sed at turpis eu pharetra. Non turpis lectus eleifend nisl fringilla dui mollis lectus. Magna scelerisque ut et donec. Etiam non et eget ullamcorper.
-  </p>
+    <div class="text-center lg:text-left">
+      <h3 class="text-3xl lg:text-3xl xl:text-4xl font-black mb-3 lg:mb-4">
+        Take notes easily
+      </h3>
+
+      <p class="text-white/70 text-base lg:text-sm xl:text-base font-light max-w-[600px] lg:max-w-none mx-auto lg:mx-0">
+        Eu risus sed at turpis eu pharetra. Non turpis lectus eleifend nisl fringilla dui mollis lectus. Magna scelerisque ut et donec.
+      </p>
+    </div>
+  </div>
 </div>
+
+<style>
+  @media (max-width: 1023px) {
+    .flex-col > div:not(:first-child) {
+      margin-top: -2rem;
+    }
+  }
+</style>
