@@ -1,0 +1,51 @@
+---
+import { Icon } from 'astro-icon/components';
+import type { Testimonial } from '@/data/overview';
+
+interface Props {
+  title: string;
+  description: string;
+  ctaText: string;
+  testimonials: Testimonial[];
+}
+
+const { title, description, ctaText, testimonials } = Astro.props;
+---
+
+<section class="py-32">
+  <div class="container">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-5xl font-bold mb-6">{title}</h2>
+      <p class="text-gray-600 max-w-70ch mx-auto">{description}</p>
+      <a 
+        href="#" 
+        class="inline-flex items-center gap-2 mt-4 text-lg font-medium hover:gap-3 transition-all duration-300"
+      >
+        {ctaText}
+        <Icon name="arrow-right" class="w-5 h-5" />
+      </a>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="grid grid-cols-3 gap-8 max-w-[1300px] mx-auto">
+      {testimonials.map((testimonial) => (
+        <div class="bg-gray-50 rounded-3xl p-8">
+          <p class="text-gray-600 mb-8">{testimonial.text}</p>
+          <div class="flex items-center gap-4">
+            <img 
+              src={testimonial.author.avatar} 
+              alt={testimonial.author.name} 
+              class="w-12 h-12 rounded-full"
+            />
+            <div>
+              <div class="font-medium">{testimonial.author.name}</div>
+              <div class="text-sm text-gray-500">{testimonial.author.position}</div>
+            </div>
+          </div>
+          <div class="mt-4 text-sm text-gray-400">{testimonial.handle}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

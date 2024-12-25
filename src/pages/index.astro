@@ -1,9 +1,10 @@
 ---
+import Layout from '@layouts/Layout.astro';
+import Nav from '@components/ui/Nav.astro';
 import Hero from '@components/Home/Hero.astro';
 import Introduction from '@components/Home/Introduction.astro';
 import Features from '@components/Home/Features.astro';
-import Nav from '@components/ui/Nav.astro';
-import Layout from '@layouts/Layout.astro';
+import ProductOverview from '@/components/Home/ProductOverview.astro';
 ---
 
 <Layout>
@@ -14,5 +15,6 @@ import Layout from '@layouts/Layout.astro';
     </section>
     <Introduction />
     <Features />
+    <ProductOverview />
   </main>
 </Layout>

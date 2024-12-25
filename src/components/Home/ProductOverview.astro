@@ -1,0 +1,41 @@
+---
+import { productOverview, testimonialsSection } from '@/data/overview';
+import OverviewHeader from './ProductOverview/OverviewHeader.astro';
+import OverviewSlider from './ProductOverview/OverviewSlider.astro';
+import OverviewTestimonials from './ProductOverview/OverviewTestimonials.astro';
+---
+
+<section class="py-32">
+  <div class="container">
+    <OverviewHeader 
+      title={productOverview.title}
+      description={productOverview.description}
+      ctaText={productOverview.ctaText}
+    />
+    <OverviewSlider features={productOverview.features} />
+  </div>
+</section>
+
+<OverviewTestimonials 
+  title={testimonialsSection.title}
+  description={testimonialsSection.description}
+  ctaText={testimonialsSection.ctaText}
+  testimonials={testimonialsSection.testimonials}
+/>
+
+<script>
+  import { Slider } from '@/lib/slider';
+
+  const slider = new Slider();
+
+  document.addEventListener('astro:unmount', () => {
+    slider.destroy();
+  });
+</script>
+
+<style>
+  .slider-words button.active {
+    color: #000000;
+    font-weight: 900;
+  }
+</style>

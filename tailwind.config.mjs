@@ -6,6 +6,15 @@ export default {
 			fontFamily: {
 				sans: ['Plus Jakarta Sans', 'sans-serif'],
 			},
+			maxWidth: {
+				'15ch': '15ch',
+				'65ch': '65ch',
+				'70ch': '70ch',
+				'75ch': '75ch',
+				'80ch': '80ch',
+				'100ch': '100ch',
+				'120ch': '120ch',
+			},
 			container: {
 				center: true,
 				padding: '1rem',
