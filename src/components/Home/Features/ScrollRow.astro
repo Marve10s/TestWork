@@ -2,25 +2,25 @@
 import { scrollItems } from '@data/features';
 
 const rows = [
-  { animationClass: 'animate-scroll-1' },
-  { animationClass: 'animate-scroll-2' },
-  { animationClass: 'animate-scroll-3' }
+  { animationClass: 'animate-scroll-1', itemClass: 'scroll-item-top' },
+  { animationClass: 'animate-scroll-2', itemClass: 'scroll-item-middle' },
+  { animationClass: 'animate-scroll-3', itemClass: 'scroll-item-top' }
 ];
 
 const multiplyItems = (items: typeof scrollItems, times: number) => {
   return Array(times).fill(null).flatMap(() => items);
 };
 
-const repeatedItems = multiplyItems(scrollItems, 4); // Repeat items 4 times
+const repeatedItems = multiplyItems(scrollItems, 4);
 ---
 
-<div class="scroll-container overflow-hidden w-full">
-  {rows.map(({ animationClass }) => (
-    <div class={`scroll-row flex gap-4 sm:gap-6 py-2 ${animationClass}`}>
+<div class="scroll-container">
+  {rows.map(({ animationClass, itemClass }) => (
+    <div class={`scroll-row ${animationClass}`}>
       {repeatedItems.map((item) => (
-        <div class="scroll-item flex items-center gap-2 sm:gap-3  bg-[#171A2480]  rounded-lg border border-white/10">
-          <span class="text-lg sm:text-xl text-[#FF4D4D]">{item.icon}</span>
-          <span class="text-white/80 text-xs sm:text-sm font-medium">{item.text}</span>
+        <div class={`scroll-item ${itemClass}`}>
+          <span class="px-1">{item.icon}</span>
+          <span class="text-sm font-extralight">{item.text}</span>
         </div>
       ))}
     </div>
@@ -47,7 +47,7 @@ const repeatedItems = multiplyItems(scrollItems, 4); // Repeat items 4 times
   }
   @keyframes scroll-3 {
     0% {
-      transform: translateX(-25%);
+      transform: translateX(-50%);
     }
     100% {
       transform: translateX(0);
@@ -57,15 +57,15 @@ const repeatedItems = multiplyItems(scrollItems, 4); // Repeat items 4 times
   /* Classes to apply the animations */
   .animate-scroll-1 {
     animation: scroll-1 20s linear infinite;
-    white-space: nowrap;
+    white-space: nowrap; /* prevent wrapping */
   }
   .animate-scroll-2 {
     animation: scroll-2 20s linear infinite;
-    white-space: nowrap;
+    white-space: nowrap; /* prevent wrapping */
   }
   .animate-scroll-3 {
     animation: scroll-3 20s linear infinite;
-    white-space: nowrap;
+    white-space: nowrap; /* prevent wrapping */
   }
 
   /* Pause animation on hover */
