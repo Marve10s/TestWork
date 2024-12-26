@@ -2,9 +2,9 @@
 import { scrollItems } from '@data/features';
 
 const rows = [
-  { animationClass: 'animate-scroll-1', itemClass: 'scroll-item-top' },
-  { animationClass: 'animate-scroll-2', itemClass: 'scroll-item-middle' },
-  { animationClass: 'animate-scroll-3', itemClass: 'scroll-item-top' }
+  { animationClass: 'animate-scroll-left', itemClass: 'scroll-item-top' },
+  { animationClass: 'animate-scroll-right', itemClass: 'scroll-item-middle' },
+  { animationClass: 'animate-scroll-left', itemClass: 'scroll-item-top' }
 ];
 
 const multiplyItems = (items: typeof scrollItems, times: number) => {
@@ -17,61 +17,82 @@ const repeatedItems = multiplyItems(scrollItems, 4);
 <div class="scroll-container">
   {rows.map(({ animationClass, itemClass }) => (
     <div class={`scroll-row ${animationClass}`}>
-      {repeatedItems.map((item) => (
-        <div class={`scroll-item ${itemClass}`}>
-          <span class="px-1">{item.icon}</span>
-          <span class="text-sm font-extralight">{item.text}</span>
-        </div>
-      ))}
+      <div class="scroll-content">
+        {repeatedItems.map((item) => (
+          <div class={`scroll-item ${itemClass}`}>
+            <span class="px-1">{item.icon}</span>
+            <span class="text-sm font-extralight">{item.text}</span>
+          </div>
+        ))}
+      </div>
+      <div class="scroll-content" aria-hidden="true">
+        {repeatedItems.map((item) => (
+          <div class={`scroll-item ${itemClass}`}>
+            <span class="px-1">{item.icon}</span>
+            <span class="text-sm font-extralight">{item.text}</span>
+          </div>
+        ))}
+      </div>
     </div>
   ))}
 </div>
 
 <style>
-  /* Keyframes for a continuous scroll from 0% to -50% */
-  @keyframes scroll-1 {
-    0% {
+  .scroll-row {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-content {
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    animation-duration: 70s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+
+  .animate-scroll-left .scroll-content {
+    animation-name: scrollLeft;
+  }
+
+  .animate-scroll-right .scroll-content {
+    animation-name: scrollRight;
+  }
+
+  @keyframes scrollLeft {
+    from {
       transform: translateX(0);
     }
-    100% {
-      transform: translateX(-50%);
+    to {
+      transform: translateX(-100%);
     }
   }
-  @keyframes scroll-2 {
-    0% {
-      transform: translateX(-25%);
+
+  @keyframes scrollRight {
+    from {
+      transform: translateX(-100%);
     }
-    100% {
-      transform: translateX(-75%);
-    }
-  }
-  @keyframes scroll-3 {
-    0% {
-      transform: translateX(-50%);
-    }
-    100% {
+    to {
       transform: translateX(0);
     }
   }
 
-  /* Classes to apply the animations */
-  .animate-scroll-1 {
-    animation: scroll-1 20s linear infinite;
-    white-space: nowrap; /* prevent wrapping */
+  @media (max-width: 1024px) {
+    .scroll-content {
+      animation-duration: 60s;
+    }
   }
-  .animate-scroll-2 {
-    animation: scroll-2 20s linear infinite;
-    white-space: nowrap; /* prevent wrapping */
-  }
-  .animate-scroll-3 {
-    animation: scroll-3 20s linear infinite;
-    white-space: nowrap; /* prevent wrapping */
+
+  @media (max-width: 640px) {
+    .scroll-content {
+      animation-duration: 50s;
+    }
   }
 
   /* Pause animation on hover */
-  .animate-scroll-1:hover,
-  .animate-scroll-2:hover,
-  .animate-scroll-3:hover {
+  .scroll-row:hover .scroll-content {
     animation-play-state: paused;
   }
 </style>
