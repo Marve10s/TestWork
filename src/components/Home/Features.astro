@@ -8,24 +8,22 @@ import ScrollRow from '@components/Home/Features/ScrollRow.astro';
 
 <section class="relative bg-black text-white">
   <div class="absolute inset-0 bg-gradient-to-b from-black via-black to-[#0c1324] pointer-events-none"></div>
-  <div class="relative px-[72px] py-24">
-    <h2 class="text-6xl font-black mb-6">
+  <div class="relative px-4 sm:px-6 lg:px-[72px] py-12 sm:py-16 md:py-20 lg:py-24">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-4 lg:mb-6">
       Explorer our features
     </h2>
-    <p class="text-xl text-white/80 max-w-70ch">
+    <p class="text-base sm:text-lg lg:text-xl text-white/80 max-w-70ch">
       Eu risus sed at turpis eu pharetra. Non turpis lectus eleifend nisl fringilla dui mollis lectus. Magna scelerisque ut et donec. Etiam non et eget ullamcorper. Accumsan odio lectus sed nibh
     </p>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-16 [&>*]:min-h-[448px]">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 mt-8 sm:mt-12 lg:mt-16 [&>*]:min-h-[320px] sm:[&>*]:min-h-[384px] lg:[&>*]:min-h-[448px]">
       <VoiceSelection />
       <UploadOptions />
       <ChromeExtension />
       <TakeNotes />
     </div>
   </div>
-  <div class="pb-20">
+  <div class="pb-12 sm:pb-16 lg:pb-20">
     <ScrollRow />
   </div>
-
-
 </section>

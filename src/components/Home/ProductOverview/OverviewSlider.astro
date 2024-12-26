@@ -8,14 +8,14 @@ interface Props {
 const { features } = Astro.props;
 ---
 
-<div class="grid grid-cols-[1.5fr_auto_0.8fr] gap-12 max-w-[1300px] mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-[1.5fr_auto_0.8fr] gap-8 md:gap-12 max-w-[1300px] mx-auto">
   <!-- Interactive words -->
-  <div class="flex flex-col gap-8 justify-center">
-    <div class="slider-words flex flex-col items-end">
+  <div class="flex flex-col gap-6 md:gap-8 justify-center order-2 md:order-1">
+    <div class="slider-words flex flex-col items-center md:items-end">
       {features.map((feature) => (
         <button 
           class:list={[
-            "text-4xl font-bold transition-all duration-300 hover:text-blue-600 mb-8 text-right text-nowrap",
+            "text-2xl sm:text-3xl md:text-4xl font-bold transition-all duration-300 hover:text-blue-600 mb-6 md:mb-8 text-center md:text-right text-nowrap",
             { "active": feature.id === 0, "text-gray-400": feature.id !== 0 }
           ]} 
           data-index={feature.id}
@@ -26,28 +26,28 @@ const { features } = Astro.props;
     </div>
     <a 
       href="#" 
-      class="inline-flex items-center gap-2 text-base font-medium bg-black text-white px-6 py-3 rounded-full hover:opacity-90 transition-all duration-300 self-end"
+      class="inline-flex items-center gap-2 text-sm sm:text-base bg-black text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-full hover:opacity-90 transition-all duration-300 self-center md:self-end"
     >
       Try it now!
     </a>
   </div>
 
   <!-- Slider content -->
-  <div class="relative overflow-hidden rounded-3xl bg-gray-100 w-[330px] h-[720px] justify-self-end">
+  <div class="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gray-100 w-full md:w-[330px] h-[480px] md:h-[720px] justify-self-center md:justify-self-end order-1 md:order-2">
     <div class="slider-container transition-transform duration-500 h-full">
       {features.map((feature) => (
         <div class:list={[
           "slide absolute inset-0 transition-opacity duration-500",
           { "opacity-100": feature.id === 0, "opacity-0": feature.id !== 0 }
         ]}>
-          <img src={feature.image} alt={feature.alt} class="w-[330px] h-[720px]">
+          <img src={feature.image} alt={feature.alt} class="w-full h-full object-cover md:object-contain">
         </div>
       ))}
     </div>
   </div>
 
   <!-- Vertical Scrollbar -->
-  <div class="flex items-center">
+  <div class="hidden md:flex items-center order-3">
     <div class="relative h-[600px] w-1">
       <div class="absolute inset-0 bg-gray-200 rounded-full">
         <div class="slider-progress absolute w-full bg-blue-600 rounded-full transition-all duration-500" style="height: 16.66%; top: 0%;"></div>

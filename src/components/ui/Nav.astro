@@ -8,32 +8,79 @@ const loginLink = links[links.length - 1];
 ---
 
 <nav class="w-full">
-    <div class="mx-[72px] pt-10">
-      <div class="flex items-center h-16">
-        <div class="flex items-center">
-          <a href="/" class="flex items-center gap-2 text-4xl font-semibold text-white">
-            <Icon name="logo" class="w-6 h-6 text-white" />
-            Listening
-          </a>
-          <div class="hidden md:flex items-center ml-12 gap-8">
-            {
-              navigationLinks.map(({ href, title }) => (
-                <a href={href} class="text-lg text-white hover:text-white/80">
-                  {title}
-                </a>
-              ))
-            }
-          </div>
+  <div class="px-4 sm:px-6 lg:px-8 xl:px-[72px] pt-6 lg:pt-10">
+    <div class="flex items-center h-14 sm:h-16">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <a href="/" class="flex items-center gap-1.5 sm:gap-2 text-2xl sm:text-3xl lg:text-4xl font-semibold text-white">
+          <Icon name="logo" class="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+          Listening
+        </a>
+
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex items-center ml-8 lg:ml-12 gap-6 lg:gap-8">
+          {
+            navigationLinks.map(({ href, title }) => (
+              <a href={href} class="text-base lg:text-lg text-white hover:text-white/80 transition-colors">
+                {title}
+              </a>
+            ))
+          }
         </div>
-  
-        <div class="flex items-center gap-8 ml-auto">
-          <a href={loginLink.href} class="text-lg text-white hover:text-white/80">
+      </div>
+
+      <!-- Desktop CTA -->
+      <div class="hidden md:flex items-center gap-6 lg:gap-8 ml-auto">
+        <a href={loginLink.href} class="text-base lg:text-lg text-white hover:text-white/80 transition-colors">
+          {loginLink.title}
+        </a>
+        <button class="text-base lg:text-lg bg-white px-4 py-2.5 lg:px-4 lg:py-3 rounded-full border border-white hover:bg-white/90 transition-colors">
+          <a class="text-black font-medium" href={cta.href}>{cta.title}</a>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        type="button"
+        class="md:hidden p-2 text-white hover:text-white/80 ml-auto relative z-[60] transition-colors"
+        onclick="[...document.querySelectorAll('[data-nav]')].forEach(el => el.classList.toggle('hidden'))"
+      >
+        <Icon 
+          name="menu" 
+          class="w-6 h-6 sm:w-7 sm:h-7"
+          data-nav
+        />
+        <Icon 
+          name="close" 
+          class="w-6 h-6 sm:w-7 sm:h-7 hidden"
+          data-nav
+        />
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div 
+      class="hidden md:hidden fixed inset-0 bg-black/95 backdrop-blur-sm z-50"
+      data-nav
+    >
+      <div class="h-full pt-24 sm:pt-32 px-4 sm:px-6">
+        <div class="flex flex-col space-y-6 sm:space-y-8">
+          {
+            navigationLinks.map(({ href, title }) => (
+              <a href={href} class="text-xl sm:text-2xl text-white hover:text-white/80 transition-colors">
+                {title}
+              </a>
+            ))
+          }
+          <hr class="border-white/20">
+          <a href={loginLink.href} class="text-xl sm:text-2xl text-white hover:text-white/80 transition-colors">
             {loginLink.title}
           </a>
-          <button class="text-lg bg-white  px-4 py-3 rounded-full border border-white hover:bg-white/90">
+          <button class="text-lg sm:text-xl bg-white px-5 py-3.5 sm:px-6 sm:py-4 rounded-full border border-white hover:bg-white/90 transition-colors w-full">
             <a class="text-black font-medium" href={cta.href}>{cta.title}</a>
           </button>
         </div>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>

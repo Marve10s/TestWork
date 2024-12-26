@@ -10,14 +10,14 @@ interface Props {
 const { title, description, ctaText } = Astro.props;
 ---
 
-<div class="text-center mb-16">
-  <h2 class="text-5xl font-bold mb-6">{title}</h2>
-  <p class="text-gray-600 max-w-70ch mx-auto">{description}</p>
+<div class="text-center mb-8 sm:mb-12 md:mb-16">
+  <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6">{title}</h2>
+  <p class="text-gray-600 max-w-70ch mx-auto px-4">{description}</p>
   <a 
     href="#" 
-    class="inline-flex items-center gap-2 mt-4 text-lg font-medium hover:gap-3 transition-all duration-300"
+    class="inline-flex items-center gap-2 mt-4 text-base sm:text-lg font-medium hover:gap-3 transition-all duration-300"
   >
     {ctaText}
-    <Icon name="arrow-right" class="w-5 h-5" />
+    <Icon name="arrow-right" class="w-4 h-4 sm:w-5 sm:h-5" />
   </a>
 </div>

@@ -3,24 +3,24 @@ import { Icon } from 'astro-icon/components'
 import { uploadOptions } from '@data/features';
 ---
 
-<div class="bg-[#171A24] rounded-2xl p-8 lg:col-span-1 flex flex-col ">
-  <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-auto">
+<div class="bg-[#171A24] rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 lg:col-span-1 flex flex-col">
+  <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-5 lg:gap-6 mb-auto">
     {uploadOptions.map((option) => (
-      <div class="flex flex-col items-center gap-3 group cursor-pointer">
-        <div class="bg-[#2E3039] w-24 h-24 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-[#383B47]">
-          <Icon name={option.icon} class="w-10 h-10 transition-transform duration-300 group-hover:scale-110" />
+      <div class="flex flex-col items-center gap-2 sm:gap-3 group cursor-pointer">
+        <div class="bg-[#2E3039] w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-[#383B47]">
+          <Icon name={option.icon} class="w-7 h-7 sm:w-8 sm:h-8 lg:w-10 lg:h-10 transition-transform duration-300 group-hover:scale-110" />
         </div>
-        <span class="text-sm text-center  transition-colors duration-300 group-hover:text-white/70">{option.label}</span>
+        <span class="text-xs sm:text-sm text-center transition-colors duration-300 group-hover:text-white/70">{option.label}</span>
       </div>
     ))}
   </div>
 
   <div class="mt-auto">
-    <h3 class="text-3xl font-black mb-4">
+    <h3 class="text-2xl sm:text-2xl lg:text-3xl font-black mb-3 lg:mb-4">
       Multiple ways to upload
     </h3>
 
-    <p class="text-white/70 text-sm font-light">
+    <p class="text-white/70 text-xs sm:text-sm font-light">
       Upload easily with options like drag-and-drop, file selection, or cloud integration.
     </p>
   </div>
