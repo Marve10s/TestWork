@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.bg-hero {
-  background-image: url('../assets/background.png');
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
 /* Scroll Row Styles */
 @layer components {
   .scroll-container {

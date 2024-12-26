@@ -1,51 +1,126 @@
 ---
 import { Icon } from 'astro-icon/components';
-import type { Testimonial } from '@/data/overview';
+import { Image } from 'astro:assets';
+import { testimonialsSection } from '@/data/overview';
 
-interface Props {
-  title: string;
-  description: string;
-  ctaText: string;
-  testimonials: Testimonial[];
-}
+const scrollTestimonials = [...testimonialsSection.testimonials, ...testimonialsSection.testimonials];
 
-const { title, description, ctaText, testimonials } = Astro.props;
+const formatTestimonialText = (text: string) => {
+  const parts = text.split(/(@\w+(?:'s)?)/g);
+  return parts.map(part => {
+    const isMention = /^@\w+(?:'s)?$/.test(part);
+    return isMention ? ['mention', part] : ['text', part];
+  });
+};
 ---
 
-<section class="py-32">
-  <div class="container">
+<section class="py-32 overflow-hidden">
+  <div>
     <!-- Header -->
-    <div class="text-center mb-16">
-      <h2 class="text-5xl font-bold mb-6">{title}</h2>
-      <p class="text-gray-600 max-w-70ch mx-auto">{description}</p>
+    <div class="text-center mb-16 px-4">
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-black mb-6">{testimonialsSection.title}</h2>
+      <p class="text-gray-600 max-w-[70ch] mx-auto mb-8">{testimonialsSection.description}</p>
       <a 
         href="#" 
-        class="inline-flex items-center gap-2 mt-4 text-lg font-medium hover:gap-3 transition-all duration-300"
+        class="inline-flex items-center gap-2 text-lg font-medium hover:gap-3 transition-all duration-300"
       >
-        {ctaText}
+        {testimonialsSection.ctaText}
         <Icon name="arrow-right" class="w-5 h-5" />
       </a>
     </div>
 
-    <!-- Testimonials Grid -->
-    <div class="grid grid-cols-3 gap-8 max-w-[1300px] mx-auto">
-      {testimonials.map((testimonial) => (
-        <div class="bg-gray-50 rounded-3xl p-8">
-          <p class="text-gray-600 mb-8">{testimonial.text}</p>
-          <div class="flex items-center gap-4">
-            <img 
-              src={testimonial.author.avatar} 
-              alt={testimonial.author.name} 
-              class="w-12 h-12 rounded-full"
-            />
-            <div>
-              <div class="font-medium">{testimonial.author.name}</div>
-              <div class="text-sm text-gray-500">{testimonial.author.position}</div>
+    <!-- Testimonials Infinite Scroll -->
+    <div class="relative w-full">      
+      <div class="testimonials-scroll overflow-hidden relative w-full">
+        <div class="testimonials-track flex gap-8 animate-scroll w-max px-4 items-stretch">
+          {scrollTestimonials.map((testimonial) => (
+            <div class="testimonial-card flex flex-col flex-none max-w-[400px] min-w-[300px] rounded-2xl p-6 border border-[#E7E7E7] bg-white ">
+              <div class="flex-1">
+                <p class="text-gray-600">
+                  {formatTestimonialText(testimonial.text).map(([type, content]) => 
+                    type === 'mention' 
+                      ? <span class="text-blue-500 hover:text-blue-600">{content}</span>
+                      : content
+                  )}
+                </p>
+              </div>
+              <div class="flex items-center gap-4 mt-6 pt-6">
+                <Image 
+                  src={testimonial.author.avatar}
+                  alt={testimonial.author.name}
+                  width={48}
+                  height={48}
+                  class="rounded-full object-cover bg-gray-100"
+                />
+                <div>
+                  <h4 class="font-semibold text-gray-900">{testimonial.author.name}</h4>
+                  <p class="text-sm text-gray-500">{testimonial.author.position}</p>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="mt-4 text-sm text-gray-400">{testimonial.handle}</div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  .testimonial-card {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .testimonials-track {
+    animation: scroll 30s linear infinite;
+    align-items: stretch;
+    display: flex;
+  }
+
+  .testimonials-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Add smooth transition at the edges */
+  .testimonials-scroll::before,
+  .testimonials-scroll::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100px;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .testimonials-scroll::before {
+    left: 0;
+    background: linear-gradient(to right, #fff, transparent);
+  }
+
+  .testimonials-scroll::after {
+    right: 0;
+    background: linear-gradient(to left, #fff, transparent);
+  }
+
+  /* Ensure hover only works on actual cards */
+  .testimonials-track > * {
+    pointer-events: auto;
+  }
+  .testimonials-track {
+    pointer-events: none;
+  }
+  .testimonials-scroll {
+    pointer-events: none;
+  }
+</style>

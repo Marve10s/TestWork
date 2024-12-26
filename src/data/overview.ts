@@ -20,7 +20,6 @@ export interface Testimonial {
     position: string;
     avatar: string;
   };
-  handle: string;
 }
 
 export interface TestimonialsSection {
@@ -76,38 +75,80 @@ export const productOverview: ProductOverview = {
 
 export const testimonialsSection: TestimonialsSection = {
   title: "What customers are saying",
-  description: "Eu risus sed at turpis eu pharetra. Non turpis lectus eleifend nisl fringilla dui mollis lectus. Magna scelerisque ut et donec. Etiam non et eget ullamcorper. Accumsan odio lectus sed nibh",
+  description: "Eu risus sed at turpis eu pharetra. Non turpis lectus eleifend nisl fringilla dui mollis lectus. Magna scelerisque ut et donec.Etiam non et eget ullamcorper. Accumsan odio lectus sed nibh ",
   ctaText: "See all reviews",
   testimonials: [
     {
       id: 1,
-      text: "Non viverra vel luctus pellentesque lorem iaculis dictum congue tellus dolor congue eua tcu ac elit velit laoreet vel ac blandit ipsum egel velit felis magna sit.",
+      text: "Using @cascade has completely transformed how we write code. The AI assistance is incredibly intuitive! Using @cascade has completely transformed how we write code. The AI assistance is incredibly intuitive!",
       author: {
-        name: "Kierra Torff",
-        position: "HR Manager",
-        avatar: "/images/avatar.png"
-      },
-      handle: "@pitchperfect"
+        name: "Sarah Chen",
+        position: "Senior Developer at TechCorp",
+        avatar: "https://randomuser.me/api/portraits/women/1.jpg"
+      }
     },
     {
       id: 2,
-      text: "Mattis dolor quam lectus ac. Vitae eget nunc morbi enim diam. Tempus augue elit posuere in amet cursus ac habitant. Tincidunt amet tristique donec consequat lorem massa. Turpis purus mattis consectetur nulla.",
+      text: "Using @cascade has completely transformed how we write code. The AI assistance is incredibly intuitive! Using @cascade has completely transformed how we write code. The AI assistance is incredibly intuiti Using @cascade has completely transformed how we write code. The AI assistance is incredibly intuitive! Using @cascade has completely transformed how we write code. The AI assistance is incredibly intuiti ",
       author: {
-        name: "Kierra Torff",
-        position: "HR Manager",
-        avatar: "/images/avatar.png"
-      },
-      handle: "@pitchperfect"
+        name: "Michael Rodriguez",
+        position: "Full Stack Engineer",
+        avatar: "https://randomuser.me/api/portraits/men/2.jpg"
+      }
     },
     {
       id: 3,
-      text: "Non viverra vel luctus pellentesque lorem iaculis dictum congue tellus dolor congue eua tcu ac elit velit laoreet vel ac blandit ipsum egel velit felis.",
+      text: "Switched from @copilot to @codeium and never looked back. The speed and accuracy are unmatched!",
       author: {
-        name: "Kierra Torff",
-        position: "HR Manager",
-        avatar: "/images/avatar.png"
-      },
-      handle: "@pitchperfect"
+        name: "Emma Wilson",
+        position: "Lead Developer",
+        avatar: "https://randomuser.me/api/portraits/women/3.jpg"
+      }
+    },
+    {
+      id: 4,
+      text: "As a team lead, @cascade has significantly improved our code review process. @codeium's suggestions are always spot on. @codeium's enterprise features have revolutionized how our entire development team collaborates.",
+      author: {
+        name: "James Thompson",
+        position: "Tech Lead",
+        avatar: "https://randomuser.me/api/portraits/men/4.jpg"
+      }
+    },
+    {
+      id: 5,
+      text: "The way @cascade handles complex refactoring tasks is incredible. It's like having an expert pair programmer always available. @codeium's enterprise features have revolutionized how our entire development team collaborates.",
+      author: {
+        name: "Lisa Park",
+        position: "Software Architect",
+        avatar: "https://randomuser.me/api/portraits/women/5.jpg"
+      }
+    },
+    {
+      id: 6,
+      text: "Moving from @intellij to @vscode with @codeium was the best decision for our team's productivity.",
+      author: {
+        name: "David Miller",
+        position: "Backend Developer",
+        avatar: "https://randomuser.me/api/portraits/men/6.jpg"
+      }
+    },
+    {
+      id: 7,
+      text: "The AI capabilities of @cascade are mind-blowing. It understands context better than any other tool I've used. @Ibrahim",
+      author: {
+        name: "Anna Kowalski",
+        position: "Frontend Developer",
+        avatar: "https://randomuser.me/api/portraits/women/7.jpg"
+      }
+    },
+    {
+      id: 8,
+      text: "@codeium's enterprise features have revolutionized how our entire development team collaborates. @codeium's enterprise features have revolutionized how our entire development team collaborates. @codeium's enterprise features have revolutionized how our entire development team collaborates. ",
+      author: {
+        name: "Tom Anderson",
+        position: "DevOps Engineer",
+        avatar: "https://randomuser.me/api/portraits/men/8.jpg"
+      }
     }
   ]
-}
+};

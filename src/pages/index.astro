@@ -5,13 +5,32 @@ import Hero from '@components/Home/Hero.astro';
 import Introduction from '@components/Home/Introduction.astro';
 import Features from '@components/Home/Features.astro';
 import ProductOverview from '@/components/Home/ProductOverview.astro';
+import { Image } from 'astro:assets';
+import backgroundImage from '../assets/background.png';
 ---
 
 <Layout>
   <main>
-    <section class="bg-hero min-h-screen">
+    <section class="relative min-h-screen h-screen">
+      <div class="absolute inset-0 w-full h-full -z-10 overflow-hidden">
+        <Image
+          src={backgroundImage}
+          alt="Hero background"
+          class="w-full h-full object-cover object-center"
+          widths={[400, 800, 1200, 1600, 2000]}
+          sizes="100vw"
+          loading="eager"
+          format="webp"
+          quality={90}
+          style={{
+            objectPosition: "50% 0%"
+          }}
+        />
+      </div>
+      <div class="relative z-10">
         <Nav />
         <Hero />
+      </div>
     </section>
     <Introduction />
     <Features />
