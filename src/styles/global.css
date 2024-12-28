@@ -9,12 +9,12 @@
   }
 
   .scroll-row {
-    @apply flex py-2;
+    @apply flex;
   }
   
   .scroll-item {
-    @apply flex items-center justify-center gap-2 py-[6px] px-4 mx-1
-           bg-[#171A2480] 
+    @apply flex items-center justify-center py-[6px] px-4 font-extralight
+           bg-row 
            rounded-md hover:bg-white/5 transition-colors text-nowrap;
   }
 

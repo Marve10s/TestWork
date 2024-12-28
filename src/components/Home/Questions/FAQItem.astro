@@ -1,0 +1,47 @@
+---
+import type { FAQItemProps } from '@/types/faq';
+
+type Props = FAQItemProps;
+
+const { item, index } = Astro.props;
+---
+
+<div 
+  class="faq-item bg-[#181728] rounded-xl overflow-hidden 
+         mb-6 hover:bg-white/5 transition-colors
+         w-full lg:max-w-[600px] xl:max-w-[800px]"
+>
+  <button
+    class="w-full flex items-center justify-between p-5 text-left group"
+    data-faq-trigger={index}
+    aria-expanded="false"
+    aria-controls={`faq-content-${index}`}
+  >
+    <span class="text-white pr-4">{item.question}</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="w-8 h-8 transition-transform text-white group-hover:text-white"
+      aria-hidden="true"
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  </button>
+  <div 
+    id={`faq-content-${index}`}
+    data-faq-content={index}
+    class="faq-content max-h-0 overflow-hidden transition-all duration-300"
+    role="region"
+    aria-labelledby={`faq-trigger-${index}`}
+  >
+    <p class="px-5 pb-5 pt-1 text-white text-[15px] leading-[24px]">
+      {item.answer}
+    </p>
+  </div>
+</div>

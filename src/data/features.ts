@@ -1,35 +1,8 @@
-import type { ImageMetadata } from "astro";
+import type { Voice, UploadOption, Note, ChromeExtensionProps, ScrollItem } from '@/types/features';
 import peterImg from "@assets/peter.png";
 import annaImg from "@assets/anna.png";
 import simonImg from "@assets/simon.png";
 import amandaImg from "@assets/amanda.png";
-
-// Types
-interface Voice {
-  src: ImageMetadata;
-  alt: string;
-}
-
-interface UploadOption {
-  icon: string;
-  label: string;
-}
-
-interface Note {
-  text: string;
-  subtext: string;
-}
-
-interface ChromeExtensionProps {
-  defaultUrl: string;
-  title: string;
-  description: string;
-}
-
-interface ScrollItem {
-  icon: string;
-  text: string;
-}
 
 // Voice data
 export const voices: Voice[] = [

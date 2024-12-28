@@ -1,33 +1,4 @@
-export interface FeatureSlide {
-  id: number;
-  title: string;
-  image: string;
-  alt: string;
-}
-
-export interface ProductOverview {
-  title: string;
-  description: string;
-  ctaText: string;
-  features: FeatureSlide[];
-}
-
-export interface Testimonial {
-  id: number;
-  text: string;
-  author: {
-    name: string;
-    position: string;
-    avatar: string;
-  };
-}
-
-export interface TestimonialsSection {
-  title: string;
-  description: string;
-  ctaText: string;
-  testimonials: Testimonial[];
-}
+import type { ProductOverview, TestimonialsSection, FeatureSlide, Testimonial } from '@/types/overview';
 
 export const productOverview: ProductOverview = {
   title: "Product Overview",

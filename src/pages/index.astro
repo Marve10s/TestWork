@@ -7,6 +7,8 @@ import Features from '@components/Home/Features.astro';
 import ProductOverview from '@/components/Home/ProductOverview.astro';
 import { Image } from 'astro:assets';
 import backgroundImage from '../assets/background.png';
+import FAQ from '@/components/Home/FAQ.astro';
+import Footer from '@/components/ui/Footer.astro';
 ---
 
 <Layout>
@@ -35,5 +37,9 @@ import backgroundImage from '../assets/background.png';
     <Introduction />
     <Features />
     <ProductOverview />
+    <section class="bg-[#0C0A15]">
+      <FAQ />
+      <Footer />
+    </section>
   </main>
 </Layout>

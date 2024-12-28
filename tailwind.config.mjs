@@ -3,6 +3,9 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			colors: {
+				'row' : 'rgba(23, 26, 36, 0.50)',
+			},
 			fontFamily: {
 				sans: ['Plus Jakarta Sans', 'sans-serif'],
 			},
