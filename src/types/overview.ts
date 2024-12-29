@@ -2,7 +2,7 @@
 export interface FeatureSlide {
   id: number;
   title: string;
-  image: string;
+  image: string | ImageMetadata;
   alt: string;
 }
 
@@ -13,6 +13,8 @@ export interface ProductOverview {
   ctaText: string;
   features: FeatureSlide[];
 }
+
+
 
 // Testimonial Types
 export interface Testimonial {

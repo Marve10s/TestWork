@@ -11,6 +11,9 @@ export default {
 			},
 			maxWidth: {
 				'15ch': '15ch',
+				'40ch': '40ch',
+				'45ch': '45ch',
+				'50ch': '50ch',
 				'65ch': '65ch',
 				'70ch': '70ch',
 				'75ch': '75ch',

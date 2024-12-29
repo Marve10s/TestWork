@@ -1,7 +1,8 @@
 ---
-import { questions } from "@data/questions";
-import FAQItem from './Questions/FAQItem.astro';
-import FAQNavigation from './Questions/FAQNavigation.astro';
+import { questions } from "@/data/faq";
+import FAQItem from './FAQ/FAQItem.astro';
+import FAQNavigation from './FAQ/FAQNavigation.astro';
+import FAQTryForFree from "./FAQ/FAQTryForFree.astro";
 ---
 
 <section class="py-8 sm:py-12 md:py-16 lg:py-20 px-4 sm:px-6 md:px-8 lg:px-[72px]">
@@ -27,6 +28,8 @@ import FAQNavigation from './Questions/FAQNavigation.astro';
           <FAQNavigation />
         </div>
       </div>
+
+      <FAQTryForFree />
     </div>
   </div>
 </section>

@@ -1,4 +1,5 @@
-import type { ProductOverview, TestimonialsSection, FeatureSlide, Testimonial } from '@/types/overview';
+import type { ProductOverview, TestimonialsSection, Testimonial } from '@/types/overview';
+import mobile from "@assets/mobile-overview.png";
 
 export const productOverview: ProductOverview = {
   title: "Product Overview",
@@ -8,37 +9,37 @@ export const productOverview: ProductOverview = {
     {
       id: 0,
       title: "Easy to use.",
-      image: "https://via.placeholder.com/330x720",
+      image: mobile,
       alt: "Easy to use interface"
     },
     {
       id: 1,
       title: "Scan Papers.",
-      image: "https://via.placeholder.com/330x720",
+      image: mobile,
       alt: "Scan papers feature"
     },
     {
       id: 2,
       title: "Upload Documents.",
-      image: "https://via.placeholder.com/330x720",
+      image: mobile,
       alt: "Upload documents feature"
     },
     {
       id: 3,
       title: "Reading View.",
-      image: "https://via.placeholder.com/330x720",
+      image: mobile,
       alt: "Reading view feature"
     },
     {
       id: 4,
       title: "Folders.",
-      image: "https://via.placeholder.com/330x720",
+      image: mobile,
       alt: "Folders feature"
     },
     {
       id: 5,
       title: "Integrations",
-      image: "https://via.placeholder.com/330x720",
+      image: mobile,
       alt: "Integrations feature"
     }
   ]

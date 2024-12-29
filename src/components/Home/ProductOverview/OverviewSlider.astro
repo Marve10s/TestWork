@@ -1,5 +1,6 @@
 ---
-import type { FeatureSlide } from '@/data/overview';
+import type { FeatureSlide } from '@/types/overview';
+import { Image } from 'astro:assets';
 
 interface Props {
   features: FeatureSlide[];
@@ -33,17 +34,23 @@ const { features } = Astro.props;
   </div>
 
   <!-- Slider content -->
-  <div class="relative overflow-hidden rounded-2xl md:rounded-3xl bg-gray-100 w-full md:w-[330px] h-[480px] md:h-[720px] justify-self-center md:justify-self-end order-1 md:order-2">
+  <div class="relative overflow-hidden rounded-2xl md:rounded-3xl w-full md:w-[330px] h-[480px] md:h-[720px] justify-self-center md:justify-self-end order-1 md:order-2">
     <div class="slider-container transition-transform duration-500 h-full">
       {features.map((feature) => (
         <div class:list={[
           "slide absolute inset-0 transition-opacity duration-500",
           { "opacity-100": feature.id === 0, "opacity-0": feature.id !== 0 }
         ]}>
-          <img src={feature.image} alt={feature.alt} class="w-full h-full object-cover md:object-contain">
+          <Image 
+            src={feature.image} 
+            alt={feature.alt} 
+            class="w-full h-full object-cover md:object-contain" 
+            quality={90}
+            format="webp"
+          />
         </div>
       ))}
-    </div>
+     </div> 
   </div>
 
   <!-- Vertical Scrollbar -->
