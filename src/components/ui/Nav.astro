@@ -43,7 +43,7 @@ const loginLink = links[links.length - 1];
       <button 
         type="button"
         class="md:hidden p-2 text-white hover:text-white/80 ml-auto relative z-[60] transition-colors"
-        onclick="[...document.querySelectorAll('[data-nav]')].forEach(el => el.classList.toggle('hidden'))"
+        onclick="[...document.querySelectorAll('[data-nav]')].forEach(el => el.classList.toggle('hidden')); document.body.style.overflow = document.body.style.overflow === 'hidden' ? '' : 'hidden';"
       >
         <Icon 
           name="menu" 
